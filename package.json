@@ -8,7 +8,10 @@
     "url": "https://github.com/evocateur/evocateur.git"
   },
   "scripts": {
-    "prepublishOnly": "webpack"
+    "test": "node src/card.js",
+    "preversion": "npm test",
+    "version": "rm -rf ./dist && webpack",
+    "postversion": "npm publish && git push --follow-tags"
   },
   "bin": {
     "evocateur": "bin/index.js"
